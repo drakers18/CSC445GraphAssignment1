@@ -17,16 +17,15 @@ public class Graph extends JFrame {
                 super.paintComponent(g);
 
                 // Draw x-axis
-                g.drawLine(50, getHeight() - 50, getWidth() - 50, getHeight() - 50);
-                g.drawString("X", getWidth() - 20, getHeight() - 30);
+                g.drawLine(50, getHeight() / 2, getWidth() - 50, getHeight() / 2);
+                g.drawString("X", getWidth() - 20, getHeight() / 2 - 10);
 
                 // Draw y-axis
-                g.drawLine(50, getHeight() - 50, 50, 50);
-                g.drawString("Y", 20, 20);
+                g.drawLine(getWidth() / 2, getHeight() - 50, getWidth() / 2, 50);
+                g.drawString("Y", getWidth() / 2 - 20, 20);
 
                 try {
                     Scanner scanner = new Scanner(new File("Input.txt"));
-                    int numPoints = scanner.nextInt();
 
                     while (scanner.hasNext()) {
                         String line = scanner.nextLine().trim();
@@ -35,8 +34,11 @@ public class Graph extends JFrame {
                             if (parts.length == 2) {
                                 double x = Double.parseDouble(parts[0]);
                                 double y = Double.parseDouble(parts[1]);
-                                int scaledX = (int) (50 + x * (getWidth() - 100));
-                                int scaledY = (int) (getHeight() - 50 - y * (getHeight() - 100));
+
+                                // Adjust coordinates to center the origin
+                                int scaledX = (int) (getWidth() / 2 + x * (getWidth() - 100) / 2);
+                                int scaledY = (int) (getHeight() / 2 - y * (getHeight() - 100) / 2);
+
                                 g.setColor(Color.RED);
                                 g.fillOval(scaledX - 2, scaledY - 2, 5, 5);
                             }
