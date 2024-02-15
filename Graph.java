@@ -1,3 +1,7 @@
+//CSC445 Graph Assignment 1
+//Drew Rakers
+//Works Cited: OpenAI
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
