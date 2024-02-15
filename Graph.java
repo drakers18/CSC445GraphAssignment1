@@ -40,7 +40,11 @@ public class Graph extends JFrame {
                 }
 
                 // Calculate scaling factors
-                double scale = Math.min((getWidth() - 100) / (maxX - minX), (getHeight() - 100) / (maxY - minY));
+                double scale = Math.min((getWidth() - 100) / (maxX - minX), (getHeight() - 300) / (maxY - minY));
+                
+
+                System.out.println("scale: "+ scale);
+                
 
                 // Draw x-axis
                 g.drawLine(50, getHeight() / 2, getWidth() - 50, getHeight() / 2);
